@@ -24,7 +24,7 @@ Ensure that the version of ChromeDriver matches the version of the Chromium-base
 
 ### setup_arc.sh
 
-Make sure to update the browser path in the `setup_arc.sh` script to match the location of your Arc Browser installation and ensure that the port specified for remote debugging is not in use by another application. The default port used in the script is `9222`. This is necessary for the script to correctly launch the browser.
+Make sure to update the browser path in the [setup_arc.sh](util/setup_arc.sh) script to match the location of your Arc Browser installation and ensure that the port specified for remote debugging is not in use by another application. The default port used in the script is `9222`. This is necessary for the script to correctly launch the browser.
 
 Example:
 
