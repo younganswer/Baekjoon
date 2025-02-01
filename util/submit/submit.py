@@ -59,7 +59,7 @@ def select_visibility(driver, visibility="code_open_accepted"):
 
 def upload_source_code(driver, problem_id):
 	try:
-		with open(f"./{problem_id}/main.cpp", "r") as file:
+		with open(f"./problem/{problem_id}/main.cpp", "r") as file:
 			source_code = file.read()
 		driver.execute_script("""
 			var editor = document.querySelector(".CodeMirror").CodeMirror;

@@ -1,5 +1,8 @@
 # Baekjoon
 
+<br/>
+<br/>
+
 ## Environment
 
 -   Browser: Arc Browser (Chromium)
@@ -8,11 +11,16 @@
 -   Selenium: 4.27.1
 -   OS: macOS Sequoia 15.1
 
+<br/>
+<br/>
+
 ## Getting started
 
 ### Browser and ChromeDriver Version
 
 Ensure that the version of ChromeDriver matches the version of the Chromium-based browser you are using. This is crucial for compatibility and to avoid any unexpected issues.
+
+<br/>
 
 ### setup_arc.sh
 
@@ -31,6 +39,8 @@ PORT=9222
 "$BROWSER_PATH" --remote-debugging-port=$PORT
 ```
 
+<br/>
+
 ### .env
 
 Create a `.env` file in the root directory of the project. You can use the `.env.example` file as a reference. The `.env` file should contain your user ID and password for loggin into the Baekjoon Online Judge.
@@ -43,3 +53,50 @@ PASSWORD=your_password
 ```
 
 Replace `your_user_id` and `your_password` with your actual Baekjoon user ID and password.
+
+<br/>
+<br/>
+
+## Usage
+
+### build
+
+To build the project, run the following command:
+
+```bash
+make build <problem_number>
+```
+
+<br/>
+
+### submit
+
+To submit a solution to a problem, run the following command:
+
+```bash
+make submit <problem_number>
+```
+
+<br/>
+
+### clean
+
+To clean all executables, run the following command:
+
+```bash
+make clean
+```
+
+<br/>
+<br/>
+
+## License
+
+This repository is licensed under the MIT License. See [LICENSE](LICENSE.md) for more information.
+
+<br/>
+<br/>
+
+## Contact
+
+You can contact me at <mailto:younganswer@kookmin.ac.kr>

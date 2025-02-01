@@ -1,22 +1,14 @@
-#!/bin/bash
-
-if [ "$#" -ne 1 ]; then
-	echo "Usage: $0 <number>"
-	exit 1
-fi
-
-NUMBER=$1
-
-mkdir -p ./problem/$NUMBER
-
-cat << EOF > ./problem/$NUMBER/main.cpp
 #include <iostream>
 
+int a, b;
+
 int init() {
+	std::cin >> a >> b;
 	return (0);
 }
 
 int solve() {
+	std::cout << a + b << std::endl;
 	return (0);
 }
 
@@ -34,7 +26,3 @@ int main(int argc, char **argv) {
 
 	return (0);
 }
-EOF
-
-# `code` is an alias for Visual Studio Code
-code ./problem/$NUMBER/main.cpp
