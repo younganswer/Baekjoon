@@ -1,3 +1,4 @@
+import os
 import time
 import socket
 import atexit
@@ -27,7 +28,8 @@ def initialize_driver(ip="127.0.0.1", port=9222):
 		print("Failed to connect to Arc", file=sys.stderr)
 		sys.exit(1)
 
-	service = Service(executable_path="/usr/local/bin/chromedriver")
+	executable_path = os.getenv("CHROMEDRIVER_PATH")
+	service = Service(executable_path=executable_path)
 	options = Options()
 	options.add_experimental_option("debuggerAddress", f"{ip}:{port}")
 	driver = webdriver.Chrome(service=service, options=options)
