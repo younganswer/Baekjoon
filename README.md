@@ -45,6 +45,8 @@ PORT=9222
 
 Create a `.env` file in the root directory of the project. You can use the [.env.sample](/util/submit/.env.sample) file as a reference. The `.env` file should contain your user ID and password, and the path to your ChromeDriver executable.
 
+**Warning:** Although the `.env` file is included in [.gitignore](/util/submit/.gitignore) to prevent it from being committed to version control, always be cautious and ensure that sensitive information is not exposed. Regularly review your security practices to prevent any potential security incidents.
+
 Example:
 
 ```plaintext
