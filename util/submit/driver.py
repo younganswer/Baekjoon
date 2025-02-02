@@ -29,6 +29,10 @@ def initialize_driver(ip="127.0.0.1", port=9222):
 		sys.exit(1)
 
 	executable_path = os.getenv("CHROMEDRIVER_PATH")
+	if executable_path is None:
+		print("CHROMEDRIVER_PATH 환경 변수를 설정해주세요.", file=sys.stderr)
+		sys.exit(1)
+	
 	service = Service(executable_path=executable_path)
 	options = Options()
 	options.add_experimental_option("debuggerAddress", f"{ip}:{port}")
