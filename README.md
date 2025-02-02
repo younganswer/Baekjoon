@@ -43,16 +43,17 @@ PORT=9222
 
 ### .env
 
-Create a `.env` file in the root directory of the project. You can use the `.env.example` file as a reference. The `.env` file should contain your user ID and password for loggin into the Baekjoon Online Judge.
+Create a `.env` file in the root directory of the project. You can use the `.env.example` file as a reference. The `.env` file should contain your user ID and password, and the path to your ChromeDriver executable.
 
 Example:
 
 ```plaintext
 USER_ID=your_user_id
 PASSWORD=your_password
+CHROMEDRIVER_PATH=/path/to/chromedriver
 ```
 
-Replace `your_user_id` and `your_password` with your actual Baekjoon user ID and password.
+Replace `your_user_id`, `your_password`, and `/path/to/chromedriver` with your actual Baekjoon user ID and password, and the path to your ChromeDriver executable.
 
 <br/>
 <br/>
