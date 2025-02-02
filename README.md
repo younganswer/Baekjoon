@@ -43,7 +43,7 @@ PORT=9222
 
 ### .env
 
-Create a `.env` file in the root directory of the project. You can use the `.env.example` file as a reference. The `.env` file should contain your user ID and password, and the path to your ChromeDriver executable.
+Create a `.env` file in the root directory of the project. You can use the [.env.sample](/util/submit/.env.sample) file as a reference. The `.env` file should contain your user ID and password, and the path to your ChromeDriver executable.
 
 Example:
 
