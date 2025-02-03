@@ -18,9 +18,8 @@ def login():
 		print("Failed to open the login page", file=sys.stderr)
 		sys.exit(1)
 
-	# .env 파일에서 사용자 ID와 비밀번호 가져오기
-	login_user_id = os.getenv("USER_ID")  # 수정된 부분
-	login_password = os.getenv("USER_PW")  # 수정된 부분
+	login_user_id = os.getenv("USER_ID")
+	login_password = os.getenv("USER_PW")
 
 	if login_user_id is None or login_password is None:
 		print("사용자 ID와 비밀번호를 .env 파일에 설정해주세요.", file=sys.stderr)

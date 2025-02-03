@@ -4,8 +4,10 @@ build: check_args
 	@bash util/build.sh $(word 2, $(MAKECMDGOALS))
 
 submit: check_args
-	@bash util/setup_arc.sh
 	@python util/submit/__init__.py $(word 2, $(MAKECMDGOALS))
+
+test: check_args
+	@bash util/test.sh $(word 2, $(MAKECMDGOALS))
 
 check_args:
 	@if [ $(words $(MAKECMDGOALS)) -ne 2 ]; then \
@@ -16,9 +18,9 @@ check_args:
 clean:
 	@bash util/clean.sh
 
-.NOTPARALLEL: build submit check_args clean
+.NOTPARALLEL: build submit check_args test clean
 
-.PHONY: build submit check_args clean
+.PHONY: build submit check_args test clean
 
 .DEFAULT:
 	@:

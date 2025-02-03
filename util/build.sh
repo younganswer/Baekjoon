@@ -6,10 +6,12 @@ if [ "$#" -ne 1 ]; then
 fi
 
 NUMBER=$1
+DIR="./problem/$NUMBER"
 
-mkdir -p ./problem/$NUMBER
+if [ ! -d "$DIR" ]; then
+	mkdir -p $DIR
 
-cat << EOF > ./problem/$NUMBER/main.cpp
+	cat << EOF > $DIR/main.cpp
 #include <iostream>
 
 int init() {
@@ -35,6 +37,7 @@ int main(int argc, char **argv) {
 	return (0);
 }
 EOF
+fi
 
 # `code` is an alias for Visual Studio Code
 code ./problem/$NUMBER/main.cpp
