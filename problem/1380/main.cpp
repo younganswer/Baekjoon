@@ -1,35 +1,38 @@
 #include <iostream>
 #include <string>
 
-#define MAX 101
+#define MAX 100
 
 int			scenario = 0;
 int			n;
-std::string	name[MAX];
-bool 		status[MAX];
+std::string	name[MAX + 1];
+bool		status[MAX + 1];
 
 int init() {
 	std::cin >> n;
 	if (n == 0) {
 		return (-1);
 	}
+	std::cin.ignore();
+	
 	for (int i = 1; i <= n; i++) {
-		std::string first_name, last_name;
-		std::cin >> first_name >> last_name;
-		name[i] = first_name + " " + last_name;
+		std::getline(std::cin, name[i]);
+		status[i] = false;
 	}
+	
 	for (int i = 0; i < 2 * n - 1; i++) {
 		int index;
 		char c;
 		std::cin >> index >> c;
 		status[index] = !status[index];
 	}
+
 	return (0);
 }
 
 int solve() {
 	for (int i = 1; i <= n; i++) {
-		if (status[i]) {
+		if (status[i] == true) {
 			std::cout << scenario << ' ' << name[i] << std::endl;
 			break;
 		}
