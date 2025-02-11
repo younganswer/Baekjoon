@@ -56,4 +56,4 @@ EOF
 
 create_inputfile
 $EXE < $INPUT_FILE
-rm -f $EXE
+rm -f $EXE $INPUT_FILE

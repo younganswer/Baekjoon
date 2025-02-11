@@ -18,9 +18,9 @@ check_args:
 clean:
 	@bash util/clean.sh
 
-.NOTPARALLEL: build submit check_args test clean
+.NOTPARALLEL: build submit test check_args clean
 
-.PHONY: build submit check_args test clean
+.PHONY: build submit test check_args clean
 
 .DEFAULT:
 	@:

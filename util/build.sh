@@ -14,6 +14,8 @@ if [ ! -d "$DIR" ]; then
 	cat << EOF > $DIR/main.cpp
 #include <iostream>
 
+
+
 int init() {
 	return (0);
 }
@@ -27,11 +29,11 @@ int main(int argc, char **argv) {
 	(void) argv;
 
 	if (init() != 0) {
-		return (-1);
+		return (0);
 	}
 
 	if (solve() != 0) {
-		return (-1);
+		return (0);
 	}
 
 	return (0);
@@ -40,4 +42,4 @@ EOF
 fi
 
 # `code` is an alias for Visual Studio Code
-code ./problem/$NUMBER/main.cpp
+code -g $DIR/main.cpp:3

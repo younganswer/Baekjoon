@@ -42,6 +42,13 @@ def start_arc(ip="127.0.0.1", port=9222):
 			return True
 		print(f"Port {port} is already in use", file=sys.stderr)
 		return False
+	
+	result = subprocess.run(["pgrep", "-f", "Arc.app"], capture_output=True, text=True)
+	if result.stdout:
+		subprocess.run(["pkill", "-f", "Arc.app"])
+		while result.stdout:
+			result = subprocess.run(["pgrep", "-f", "Arc.app"], capture_output=True, text=True)
+			time.sleep(0.5)
 
 	browser_path = os.getenv("BROWSER_PATH")
 	if browser_path is None:
@@ -53,11 +60,13 @@ def start_arc(ip="127.0.0.1", port=9222):
 		print("Set the USER_DATA_DIR environment variable", file=sys.stderr)
 		sys.exit(1)
 
+	log_file = open("browser.log", "w")
+
 	process = subprocess.Popen([
 		browser_path,
 		"--remote-debugging-port=9222",
-		f"--user-data-dir={user_data_dir}"
-	], preexec_fn=os.setpgrp)
+		f"--user-data-dir={user_data_dir}",
+	], stdout=log_file, stderr=log_file, preexec_fn=os.setpgrp)
 
 	return (
 		wait_for_process(process) and
