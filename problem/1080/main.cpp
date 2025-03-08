@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 
+#define SUCCESS 0
+#define FAILURE 0
 #define MAX 50
 
 int N, M;
@@ -13,11 +16,6 @@ int init() {
 	}
 	for (int i = 0; i < N; i++) {
 		std::cin >> B[i];
-	}
-
-	if (N < 3 || M < 3) {
-		std::cout << -1 << std::endl;
-		return (-1);
 	}
 
 	return (0);
@@ -43,7 +41,7 @@ int solve() {
 		}
 	}
 
-	for (int i = N - 2; i < N; i++) {
+	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {
 			if (A[i][j] != B[i][j]) {
 				std::cout << -1 << std::endl;
@@ -61,13 +59,5 @@ int main(int argc, char **argv) {
 	(void) argc;
 	(void) argv;
 
-	if (init() != 0) {
-		return (0);
-	}
-
-	if (solve() != 0) {
-		return (0);
-	}
-
-	return (0);
+	return (init() == 0 && solve() == 0) ? SUCCESS : FAILURE;
 }
